@@ -15,7 +15,7 @@ const Header = () => {
                 </article>
                 <ul className={style.listItems}>
                     <li className={style.listItem}>
-                        <a  href="#"><i className="fas fa-search"></i></a>
+                        <a className={style.navListItem} href="#"><i className="fas fa-search"></i></a>
                     </li>
                     <li className={style.listItem}>
                         <a className={style.navListItem} href="#">България</a>
@@ -37,11 +37,11 @@ const Header = () => {
                     </li>
                 </ul>
             </nav>
-            <article className={style["header-logo-wrapper"], style.mobile}>
-                <h1 className="header-logo">
+            <article className={style.logoWrapper, style.mobile}>
+                <h1 className={style.logo}>
                     <a className={style.navListItem} href="#">ТЪПАНЪ</a>
                 </h1>
-                <p className="header-logo-subtitle">
+                <p className={style.headerLogoSubtitle}>
                     НАУЧИ ПОВЕЧЕ <br /> ЗА БЪЛГАРИЯ И СВЕТА
             </p>
                 <a className={style.navListItem} href="#"><i className="fas fa-bars"></i></a>

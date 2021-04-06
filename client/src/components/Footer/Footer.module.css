@@ -1,0 +1,24 @@
+.footer {
+    background: #F4EFEB;
+    width: 100%;
+    padding: 35px 30px;
+    bottom: 0;
+    z-index: 5;
+    text-align: center;
+    color: #4180a1
+}
+
+.footerContent {
+    margin: 10px;
+}
+
+.footerNavigation {
+    color: #43ABC9;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footerNavigation:hover {
+    color: #4180a1;
+    text-decoration: none;
+}

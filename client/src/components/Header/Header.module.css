@@ -1,16 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Pattaya&display=swap');
+
 .header {
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     font-weight: 500;
     background-color: #4180a1;
-    box-shadow: 0 0 5px black;
+    -webkit-box-shadow: 0 0 5px black;
+            box-shadow: 0 0 5px black;
     z-index: 100;
 }
 
 .headerNavigation {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -18,8 +28,12 @@
 .logoWrapper {
     color: white;
     margin-left: 12px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 
@@ -36,12 +50,18 @@
 .logoNav {
     text-decoration: none;
     color: white;
+    -webkit-transition: all .2s ease;
+    -o-transition: all .2s ease;
     transition: all .2s ease;
 }
 
 .listItems {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .listItem {
@@ -53,6 +73,8 @@
 .navListItem {
     text-decoration: none;
     color: white;
+    -webkit-transition: all .2s ease;
+    -o-transition: all .2s ease;
     transition: all .2s ease;
 }
 
@@ -74,13 +96,29 @@ input[type=text] {
     display: inline-block;
     border: 1px solid white;
     border-radius: 4px;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    -webkit-transition: all .2s ease;
+    -o-transition: all .2s ease;
     transition: all .2s ease;
   }
   input[type=text]:focus {
       outline: none;
-      box-shadow: 0 0 2px #492201;;
+      -webkit-box-shadow: 0 0 2px #492201;
+              box-shadow: 0 0 2px #492201;;
       width: 190px;
+  }
+  ::-webkit-input-placeholder {
+    color: #43ABC9;
+  }
+  ::-moz-placeholder {
+    color: #43ABC9;
+  }
+  :-ms-input-placeholder {
+    color: #43ABC9;
+  }
+  ::-ms-input-placeholder {
+    color: #43ABC9;
   }
   ::placeholder {
     color: #43ABC9;

@@ -1,4 +1,4 @@
-import style from './MainHeader.module.css'
+import style from './MainHeader.module.scss'
 import mainHeaderImage from '../../images/earth-from-space.jpg'
 const MainHeader = () => {
 

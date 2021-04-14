@@ -1,9 +1,9 @@
 const userModel = require('./userModel');
 const tokenBlacklistModel = require('./tokenBlacklistModel');
-const recipeModel = require('./recipeModel');
+const articleModel = require('./articleModel');
 
 module.exports = {
     userModel,
     tokenBlacklistModel,
-    recipeModel,
+    articleModel,
 }

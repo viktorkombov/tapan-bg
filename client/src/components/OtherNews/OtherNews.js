@@ -1,26 +1,24 @@
-import style from './OtherNews.module.css'
-import NewsCard from '../NewsCard'
+import style from './OtherNews.module.scss'
 import newsImage from '../../images/news-img.jpg';
+
+import ArticleSummary from '../ArticleSummary'
 
 
 const OtherNews = (props) => {
 
 
     return (
-        <>
-            <h3 className={style.otherNewsHeading}>Новините от България</h3>
-            <section className={style.otherNews}>
-                <div className={style.otherNewsCard}>
-                    <NewsCard image={newsImage} />
-                </div>
-                <div className={style.otherNewsCard}>
-                    <NewsCard image={newsImage} />
-                </div>
-                <div className={style.otherNewsCard}>
-                    <NewsCard image={newsImage} />
-                </div>
-            </section>
-        </>
+        <div className={style.otherNewsWrapper}>
+            <div className={style.otherNewsArticle}>
+            <ArticleSummary />
+            </div>
+            <div className={style.otherNewsArticle}>
+            <ArticleSummary />
+            </div>
+            <div className={style.otherNewsArticle}>
+            <ArticleSummary />
+            </div>
+        </div>
     );
 }
 

@@ -5,10 +5,11 @@
     position: sticky;
     top: 0;
     font-weight: 500;
-    background-color: #4180a1;
-    -webkit-box-shadow: 0 0 5px black;
-            box-shadow: 0 0 5px black;
+    background-color: rgba(0,0,0,0.8);
+    // -webkit-box-shadow: 0 0 5px white;
+    //         box-shadow: 0 0 5px white;
     z-index: 100;
+    
 }
 
 .headerNavigation {
@@ -123,3 +124,53 @@ input[type=text] {
   ::placeholder {
     color: #43ABC9;
   }
+
+  @media screen and (max-width: 1200px) {
+  
+    .headerNavigation {
+        display: none;
+    }
+  
+    .mobile {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+    }
+    
+    .headerLogoSubtitle {
+        font-size: 14px;
+        margin-right: 20px;
+        color: white;
+    }
+    .navListItem{
+        color: white;
+        font-size: 30px;
+    }
+    .logo {
+        margin-left: 0px;
+        font-size: 20px;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    .headerLogoSubtitle {
+        font-size: 11px;
+        margin-right: 13px;
+    }
+    .navListItem{
+        color: white;
+        font-size: 21px;
+    }
+    .logo {
+        padding-right: 13px;
+        margin-right: 13px;
+        margin-left: 0px;
+        font-size: 17px;
+    }
+}

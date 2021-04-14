@@ -1,24 +1,35 @@
 .footer {
-    background: #F4EFEB;
+    background-color: rgba(0,0,0,0.8);
     width: 100%;
     padding: 35px 30px;
     bottom: 0;
     z-index: 5;
     text-align: center;
-    color: #4180a1
+    color: white
 }
 
 .footerContent {
     margin: 10px;
 }
 
-.footerNavigation {
+.footerContentNavigation {
     color: #43ABC9;
     text-decoration: none;
     font-weight: 600;
 }
 
-.footerNavigation:hover {
+.footerContentNavigation:hover {
     color: #4180a1;
     text-decoration: none;
 }
+
+
+@media screen and (max-width: 1200px) {
+    .footer {
+        width: auto;
+    }
+  
+    .footerNavigation {
+        color: white;
+    }
+  }

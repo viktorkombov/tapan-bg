@@ -1,43 +1,37 @@
-import style from './NewsGrid.module.css';
+import style from './NewsGrid.module.scss';
+import cat from '../../images/1.png'
+import NewsGridItem from './NewsGridItem'
 
-const NewsGrid = () => {
-
+const NewsGrid = ({ articles }) => {
     return (
         <div className={style.gridContainer}>
             <div className={style.grid}>
-                <div class={style.gridCellsContainer}>
-                    <div class={style.gridCell}>
-                        <p class={style.gridCellCategory}>Котка</p>
-                        <p class={style.gridCellTitle}>Котка 1</p>
+                <div className={style.gridCellsContainer}>
+                    <div className={style.gridCell} >
+                        <NewsGridItem image={cat} />
                     </div>
-                    <div class={style.gridCell}>
-                        <p class={style.gridCellCategory}>pic</p>
-                        <p class={style.gridCellTitle}>Historical picture 1</p>
+                    <div className={style.gridCell} >
+                        <NewsGridItem image={cat} />
                     </div>
-                    <div class={style.gridCell}>
-                        <p class={style.gridCellCategory}>pic</p>
-                        <p class={style.gridCellTitle}>Historical picture 1</p>
+                    <div className={style.gridCell} >
+                        <NewsGridItem image={cat} />
                     </div>
-                    <div class={style.gridCell}>
-                        <p class={style.gridCellCategory}>pic</p>
-                        <p class={style.gridCellTitle}>Historical picture 1</p>
+                    <div className={style.gridCell} >
+                        <NewsGridItem image={cat} />
                     </div>
-                    <div class={style.gridCell}>
-                        <p class={style.gridCellCategory}>pic</p>
-                        <p class={style.gridCellTitle}>Historical picture 1</p>
+                    <div className={style.gridCell} >
+                        <NewsGridItem image={cat} />
                     </div>
-                    <div class={style.gridCell}>
-                        <p class={style.gridCellCategory}>pic</p>
-                        <p class={style.gridCellTitle}>Historical picture 1</p>
+                    <div className={style.gridCell} >
+                        <NewsGridItem image={cat} />
                     </div>
-                    <div class={style.gridCell}>
-                        <p class={style.gridCellCategory}>pic</p>
-                        <p class={style.gridCellTitle}>Historical picture 1</p>
+                    <div className={style.gridCell} >
+                        <NewsGridItem image={cat} />
                     </div>
                 </div>
             </div>
         </div>
-        
+
     );
 }
 

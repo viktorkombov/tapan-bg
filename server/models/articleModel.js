@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const { ObjectId, String } = mongoose.Schema.Types;
 
-const recipeSchema = new mongoose.Schema({
-    recipeName: {
+const articleSchema = new mongoose.Schema({
+    articleName: {
         type: String,
         required: true
     },
@@ -14,18 +14,7 @@ const recipeSchema = new mongoose.Schema({
         type: ObjectId,
         ref: "User"
     },
-    ingredients: [
-        String
-    ],
     category: {
-        type: String,
-        required: true
-    },
-    difficultyLevel: {
-        type: String,
-        required: true
-    },
-    quantity: {
         type: String,
         required: true
     },
@@ -33,7 +22,7 @@ const recipeSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    recipeContent: {
+    articleContent: {
         type: String,
         requried: true
     },
@@ -45,10 +34,10 @@ const recipeSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    necesseryTime: {
-        type: String,
-        required: true
-    }
+    comments: [{
+        type: ObjectId,
+        ref: "User"
+    }]
 });
 
-module.exports = mongoose.model('Recipe', recipeSchema);
+module.exports = mongoose.model('Article', articleSchema);

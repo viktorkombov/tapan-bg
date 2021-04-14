@@ -1,0 +1,19 @@
+.otherNewsWrapper {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 220px;
+    grid-gap: 16px;
+    margin: 10px 16px 40px 18px;
+}
+
+.otherNewsArticle {
+    grid-column-start: span 2;
+}
+
+
+@media screen and (max-width: 910px) {
+    .otherNewsArticle {
+        grid-column-start: span 6;
+        display: flex;
+    }
+}

@@ -12,6 +12,7 @@ import NewsGrid from './components/NewsGrid';
 import OtherNews from './components/OtherNews';
 import InterestingFacts from './components/InterestingFacts';
 import Article from './components/Article';
+import HomePage from './components/HomePage';
 
 class App extends Component {
 	constructor(props) {
@@ -38,14 +39,11 @@ class App extends Component {
 					<main>
 						<Switch>
 						<section className="main">
-							<h2 className="headlinesHeading">Водещите новини за днес</h2>
-							<NewsGrid articles={this.state.articles} />
-							<OtherNews />
-							<InterestingFacts />
-							{/* <Article/> */}
+							<Route path="/" component={HomePage} exact/>
+							<Route path="/article" component={Article}/>
 						</section>
-						<Aside />
 						</Switch>
+						<Aside />
 					</main>
 				</div>
 				<Footer />

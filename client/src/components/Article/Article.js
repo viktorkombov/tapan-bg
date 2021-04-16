@@ -1,22 +1,58 @@
-import {useEffect, useState} from 'react';
+import { Component, useEffect, useState } from 'react';
 import style from './Article.module.scss'
+import * as articleService from '../../services/articleService';
 
+class Article extends Component {
+    constructor(props) {
+        super(props);
+        
+        
+        this.state = {
+            articles: []
+        }
+    }
 
-const Article = ({
-    match,
-}) => {
-    const [articles, setArticles] = useState([]);
+    componentDidMount() {
+        articleService.getAll()
+            .then(articles => this.setState({articles}))
+        // console.log(this.state)
+    }
 
-    useEffect(() => {
-        fetch('http://localhost:5000/api/articles')
-            .then(res => res.json())
-            .then(res => setArticles(res))
-    }, []);
+    componentDidUpdate(prevProps) {
+        if (prevProps.onLoad === this.props.onLoad) {
+            return;
+        }
+        this.props.onLoad(this.state.articles[0]?.articleName)
+    }
 
-    console.log(articles)
-    return (
-        <p className={style.articleParagraph}>Раковски е с несистемно частно високо образование. Освен родния си български език, като поданик на Османската империя, а по късно и на Гърция, владее за употреба в границите на тогавашната държава турски език, както и гръцки в двата му варианта. Овладява говоримо и писмено и няколко европейски езици, сред които сръбски, френски – за непосредствена и за научна цел, английски и др. Служи си с арабски и персийски. Той е ярък представител на течението на романтизма, силно повлиян е от Майнхард и братя Грим (Gebrüder Grimm),[3] които чрез своите приказки създават национално чувство в германския народ. Под тяхно влияние той създава етнографски въпросник и иска от всички българи да го попълват и да описват своите вярвания, песни, гатанки. Раковски остава в полето на етнографията с „Показалец“ (1859) и „Българска старина“ (1865). В тях Раковски очертава за първи път идеята за събиране народни старини и те са начало в събираческо-етнографската дейност в България[4]. Раковски подготвя първият етнографски въпросник по отношение на въпроси засягащи културата в родния му Котел. По отношение на борбата за образование, Раковски е човекът смятан за учител на Васил Априлов, който създава първото взаимно училище в Габрово през 1835 г. По отношение на революцията той е учителят на Васил Левски. След Паисий Хилендарски и Софроний Врачански, Георги Раковски е направил най-много за съхраняването на българското самосъзнание през 19 век. Раковски се стреми да съхрани богатството на езика и поради тази причина влиза в задочен спор със своя съгражданин, котленеца Гаврил Кръстевич, който се стреми да унифицира българския език и да наложи говоримия език за книжовен български език. Като етнограф/етнолог – фолклорист Раковски подтиква много българи да се образоват във връзка своите вярвания, обичаи и песни. Дълго време Раковски защитава пан-славянската идея. Подбуждането на националната духовна култура е чудесен метод той да се обоснове, за велика „славянска“ България. След провала на Двете легии, обаче Раковски е разочарован от политиката на Русия и Сърбия и преосмисля тезите си. Той стига до идеята за национално въстание – идея, която ще бъде продължена от В. Левски.</p>
-    );
+    render() {
+        return (
+            <p className={style.articleParagraph}>{this.state.articles[0]?.articleContent}</p>
+        );
+    }
+
 }
+// const Article = ({
+//     match,
+//     onLoad
+// }) => {
+
+//     // console.log(onLoad())
+//     const [onLoadFunction, setOnLoad] = useState([]);
+
+//     useEffect(() => {
+//         // fetch('http://localhost:5000/api/articles')
+//         //     .then(res => res.json())
+//         //     .then(res => setArticles(res))
+//         setOnLoad(onLoad)
+//     }, []);
+
+//     console.log(onLoadFunction)
+
+//     // const articleContnet = articles[0] ? articles[0].articleContent : 'Kur';
+//     return (
+//         <p className={style.articleParagraph}>{'asd'}</p>
+//     );
+// }
 
 export default Article;

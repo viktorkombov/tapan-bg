@@ -1,3 +1,24 @@
+.mainHeader {
+    .mainHeaderHeading {
+        padding-left: 40px;
+        padding-right: 40px;
+        margin-top: -83px;
+        font-size: 32px;
+        color: white;
+        height: 80px;
+        // background-color: rgba(0,0,0,0.7);
+        background-image: linear-gradient(rgba(0,0,0,0.01), rgba(0,0,0,0.3), rgba(0,0,0,0.5), rgba(0,0,0,1));
+        position: relative;
+        margin-right: 16px;
+        margin-left: 16px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        h1 {
+            padding-top: 20px;
+        }
+    }
+}
+
 .mainHeaderImageWrapper {
     margin-right: 16px;
     margin-left: 16px;
@@ -8,4 +29,21 @@
     -o-object-fit: cover;
        object-fit: cover;
     border-radius: 5px;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .mainHeaderHeading {
+        h1 {
+            font-size: 25px;
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .mainHeaderHeading {
+        h1 {
+            font-size: 18px;
+        }
+    }
 }

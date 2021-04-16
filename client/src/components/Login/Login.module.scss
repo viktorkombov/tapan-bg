@@ -1,0 +1,97 @@
+.loginOverlay {
+  opacity:    0.9; 
+  background: #000; 
+  width:      100%;
+  height:     100%; 
+  z-index:    12;
+  top:        0; 
+  left:       0; 
+  position:   fixed; 
+  
+}
+
+.loginCloseButtonWrapper {
+    float: right;
+    margin: 20px;
+    font-size: 40px;
+    color: white;
+    &:hover {
+        cursor: pointer;
+        color: #43ABC9;
+        i {
+            border-color: #43ABC9;
+        }
+    }
+    i {
+        border: 3px solid white;
+        padding: 0 5px;
+        border-radius: 50%;
+    }
+}
+
+.form {
+    position: relative;
+    z-index: 11;
+    margin: auto;
+    margin-top: 13%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h1 {
+        color: white;
+        margin-bottom: 30px;
+    }
+    
+    input[type=text], input[type=password] {
+        padding: 15px;
+        width: 600px;
+        border: 1px solid gray;
+        margin: 10px;
+        
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 10px 0px #4488D0;
+        }
+    }
+
+    // button {
+    //     margin-top: 10px;
+    //     width: 315px;
+    //     padding: 15px;
+    //     background-color: #4488D0;
+    //     border-radius: 10px;
+    //     color: white;
+    //     font-size: 16px;
+    //     border: 1px solid #4488D0;
+        
+    //     &:hover {
+    //         cursor: pointer;
+    //         box-shadow: 0 0 5px  #4488D0;
+    //     }
+    // }
+}
+
+.navToRegisterLink {
+    font-weight: 600;
+    margin-top: 20px;
+    text-decoration: none;
+    color: rgb(179, 174, 174);
+}
+
+@media screen and (max-width: 800px) {
+    .form {
+        margin-top: 30%;
+        input[type=text], input[type=password] {
+            width: 80%;
+        }
+        h1 {
+            font-size: 20px;
+        }
+    }
+
+    .loginCloseButtonWrapper {
+        margin: 10px;
+        font-size: 30px;
+    }
+}

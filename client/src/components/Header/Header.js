@@ -1,7 +1,7 @@
 import style from './Header.module.scss'
 import {Link} from 'react-router-dom';
 
-const Header = () => {
+const Header = (props) => {
 
     return (
         <header className={style.header}>
@@ -34,7 +34,7 @@ const Header = () => {
                         <Link to=""className={style.navListItem} >За нас</Link> 
                     </li>
                     <li className={style.listItem}>
-                        <Link to=""className={style.navListItem} ><i className="fas fa-user"></i></Link> 
+                        <a className={style.navListItem} onClick={props.onClosing}><i className="fas fa-user"></i></a> 
                     </li>
                 </ul>
             </nav>

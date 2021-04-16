@@ -4,6 +4,7 @@
 }
 
 .main {
+    width: 80%;
     h2 {
         padding-left: 10px;
         margin-top: 11px;
@@ -11,3 +12,34 @@
     }
 
 }
+
+button {
+    margin-top: 10px;
+    width: 315px;
+    padding: 15px;
+    background-color: #4488D0;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    border: 1px solid #4488D0;
+    transition: all 0.3s;
+    &:hover {
+        transform: scale(1.005);
+        cursor: pointer;
+        box-shadow: 0 0 5px  #4488D0;
+    }
+}
+
+
+@media screen and (max-width: 1200px) {
+    .main {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    button {
+        width: 70%;
+    }
+}
+

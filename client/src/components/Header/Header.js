@@ -16,7 +16,7 @@ const Header = (props) => {
                 </article>
                 <ul className={style.listItems}>
                     <li className={style.listItem}>
-                        <Link to=""className={style.navListItem} ><i className="fas fa-search"></i></Link> 
+                        <a className={style.navListItem} onClick={props.onClosinSearchInput}><i className="fas fa-search"></i></a> 
                     </li>
                     <li className={style.listItem}>
                         <Link to="/article"className={style.navListItem} >България</Link> 

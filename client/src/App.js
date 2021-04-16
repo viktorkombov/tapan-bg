@@ -14,6 +14,10 @@ import InterestingFacts from './components/InterestingFacts';
 import Article from './components/Article';
 import HomePage from './components/HomePage';
 import Login from './components/Login';
+import Register from './components/Register';
+import NewArticle from './components/NewArticle';
+import Profile from './components/Profile/Profile';
+import SearchInput from './components/Header/SearchInput';
 
 class App extends Component {
 	constructor(props) {
@@ -24,12 +28,22 @@ class App extends Component {
 		// }
 
 		this.state = {
-			opens: false
+			openLoginForm: false,
+			openSarchInput: false
 		}
 	}
 
-	handleOpen() {
-		this.setState(state => ({opens: !this.state.opens}))
+	handleOpenLoginForm() {
+		this.setState(state => ({ openLoginForm: !this.state.openLoginForm }))
+	}
+
+	handleOpenSearchInput(fromBody) {
+		if (fromBody === 'fromBody') {
+			console.log(this.state.openSarchInput)
+			this.setState(state => ({ openSarchInput: false }))
+		} else {
+			this.setState(state => ({ openSarchInput: !this.state.openSarchInput }))
+		}
 	}
 	// componentDidMount() {
 	// 	articleService.getAll()
@@ -58,23 +72,27 @@ class App extends Component {
 
 	render() {
 		return (
-			<div className="App">
-				{this.state.opens ? <Login onClosing={this.handleOpen.bind(this)} /> : null}
-				<Header onClosing={this.handleOpen.bind(this)}/>
-				<div className="container">
-					<button type="button" onClick={this.handleOpen.bind(this)}>Login</button>
+			<div className="App"  >
+				{this.state.openLoginForm ? <Login onClosing={this.handleOpenLoginForm.bind(this)} /> : null}
+				{this.state.openSarchInput ? <SearchInput onClosinSearchInput={this.handleOpenSearchInput.bind(this)} /> : null}
+				<Header onClosing={this.handleOpenLoginForm.bind(this)} onClosinSearchInput={this.handleOpenSearchInput.bind(this)} />
+				<div className="container" onClick={() => this.handleOpenSearchInput('fromBody')}>
 					<MainHeader />
 					<main>
-					<Route path="/register" component={Login} />
+
 						<Switch>
 							<>
-							<section className="main">
-								<Route path="/" component={HomePage} exact />
-								<Route path="/article" render={() => (
-									<Article />
-								)}
-								/>
-							</section>
+								<section className="main">
+									<Route path="/" component={HomePage} exact />
+									<Route path="/article" render={() => (
+										<Article />
+									)}
+										exact
+									/>
+									<Route path="/register" component={Register} />
+									<Route path="/article/add-new" component={NewArticle} />
+									<Route path="/user/profile" component={Profile} />
+								</section>
 							</>
 						</Switch>
 						<Aside />

@@ -6,7 +6,7 @@ const config = {
         dbUrl: 'mongodb+srv://viktorkombov:Fo1k67cd45CqBahB@cluster0.3vnvm.mongodb.net/tapan-bg?retryWrites=true&w=majority',
         cookie: 'cookie-for-auth-token',
         secret: 'SecretService',
-        origin: ['http://localhost:3000', 'http://localhost:3001']
+        origin: ['http://localhost:3000', 'http://localhost:4200']
     },
     production: {
         port: process.env.PORT || 5000,

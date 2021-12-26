@@ -1,4 +1,5 @@
 import style from './Register.module.scss'
+import * as userService from '../../services/userService'
 import { Component } from 'react';
 
 class Register extends Component {
@@ -24,6 +25,7 @@ class Register extends Component {
     onSubmitHandler(e) {
         e.preventDefault();
         console.log(this.state)
+        userService.register(this.state).then(res => console.log(res))
     }
 
     render() {
@@ -63,7 +65,7 @@ class Register extends Component {
                     placeholder="Повтори паролата"
                     onChange={this.onChangeHandler.bind(this)}
                 />
-                <button>Регистрирай се</button>
+                <button className="button">Регистрирай се</button>
                 {/* <Link className={style.navToRegisterLink} to="/register">Нямаш регистрация? Регистрирай се.</Link> */}
             </form>
         );

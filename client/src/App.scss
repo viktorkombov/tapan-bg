@@ -13,7 +13,7 @@
 
 }
 
-button {
+.button {
     margin-top: 10px;
     width: 315px;
     padding: 15px;
@@ -95,7 +95,7 @@ button {
 }
 
 @media screen and (max-width: 400px) {
-    button {
+    .button {
         width: 70%;
     }
 }

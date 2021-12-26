@@ -2,15 +2,12 @@ import './App.scss';
 import { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import * as articleService from './services/articleService';
+import * as userService from './services/userService';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
 import MainHeader from './components/MainHeader';
 import Aside from './components/Aside'
-import NewsGrid from './components/NewsGrid';
-import OtherNews from './components/OtherNews';
-import InterestingFacts from './components/InterestingFacts';
 import Article from './components/Article';
 import HomePage from './components/HomePage';
 import Login from './components/Login';
@@ -18,6 +15,7 @@ import Register from './components/Register';
 import NewArticle from './components/NewArticle';
 import Profile from './components/Profile/Profile';
 import SearchInput from './components/Header/SearchInput';
+import {withRouter} from 'react-router-dom';
 
 class App extends Component {
 	constructor(props) {
@@ -29,13 +27,44 @@ class App extends Component {
 
 		this.state = {
 			openLoginForm: false,
-			openSarchInput: false
+			openSarchInput: false,
+			user: {},
+			isLoading: true
 		}
 	}
 
+
+	componentDidMount() {
+		userService.update().then(res => {
+			this.setState(() => ({user: res}))
+		});	    
+	}
+
+	componentDidUpdate( prevProps,prevState) {
+		if (prevState.isLoading === this.state.isLoading) {
+			console.log(prevState)
+			return;
+		}
+		userService.update().then(res => {
+			this.setState(() => ({user: res}))
+		});	    
+			        console.log(this.state.user);
+	}
 	handleOpenLoginForm() {
 		this.setState(state => ({ openLoginForm: !this.state.openLoginForm }))
 	}
+
+	handleLoggedIn() {
+		console.log('asd')
+        this.setState(() => ({isLoading: false}))
+    }
+
+	userLogout() {
+		console.log('asd')
+        userService.logout().then(res => console.log(res))
+		this.setState(() => ({user: null}))
+        this.setState(() => ({isLoading: true}))
+    }
 
 	handleOpenSearchInput(fromBody) {
 		if (fromBody === 'fromBody') {
@@ -45,11 +74,17 @@ class App extends Component {
 			this.setState(state => ({ openSarchInput: !this.state.openSarchInput }))
 		}
 	}
-	// componentDidMount() {
+
+
+	// componentD {idMount() {
 	// 	articleService.getAll()
 	// 		.then(articles => {
 	// 			this.setState({ articles })
 	// 		});
+	// }
+
+	// componentDidUpdate() {
+
 	// }
 
 	// componentDidUpdate(prevProps) {
@@ -71,11 +106,13 @@ class App extends Component {
 	// }
 
 	render() {
+
+		console.log(this.props)
 		return (
 			<div className="App"  >
-				{this.state.openLoginForm ? <Login onClosing={this.handleOpenLoginForm.bind(this)} /> : null}
+				{this.state.openLoginForm ? <Login handleLoggedIn={this.handleLoggedIn.bind(this)} onClosing={this.handleOpenLoginForm.bind(this)} /> : null}
 				{this.state.openSarchInput ? <SearchInput onClosinSearchInput={this.handleOpenSearchInput.bind(this)} /> : null}
-				<Header onClosing={this.handleOpenLoginForm.bind(this)} onClosinSearchInput={this.handleOpenSearchInput.bind(this)} />
+				<Header appProps={this.props} user={this.state.user} userLogout={this.userLogout.bind(this)}  onClosing={this.handleOpenLoginForm.bind(this)} onClosinSearchInput={this.handleOpenSearchInput.bind(this)} />
 				<div className="container" onClick={() => this.handleOpenSearchInput('fromBody')}>
 					<MainHeader />
 					<main>
@@ -83,15 +120,15 @@ class App extends Component {
 						<Switch>
 							<>
 								<section className="main">
-									<Route path="/" component={HomePage} exact />
-									<Route path="/article" render={() => (
+									<Route path="/" location={this.props.location} component={HomePage} exact />
+									<Route path="/article/:articleID" render={() => (
 										<Article />
 									)}
 										exact
 									/>
 									<Route path="/register" component={Register} />
 									<Route path="/article/add-new" component={NewArticle} />
-									<Route path="/user/profile" component={Profile} />
+									<Route path="/user/profile" render={() => (<Profile user={this.state.user} />)}  />
 								</section>
 							</>
 						</Switch>
@@ -104,4 +141,4 @@ class App extends Component {
 	}
 }
 
-export default App;
+export default withRouter(App);

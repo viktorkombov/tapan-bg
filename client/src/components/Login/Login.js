@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import style from './Login.module.scss'
+import * as userService from '../../services/userService'
 
 const Login = (props) => {
     const [username, setUsername] = useState('');
@@ -16,6 +17,13 @@ const Login = (props) => {
     const onSubmitHandler = (e) => {
         e.preventDefault()
         console.log(username + ' ' + password);
+        userService.login({ username, password }).then(res => {
+            console.log(res);
+            if (res?.name) {
+                props.onClosing();
+                props.handleLoggedIn();
+            }
+        })
     }
 
     return (
@@ -37,7 +45,7 @@ const Login = (props) => {
                     placeholder="Парола"
                     onChange={onChangeHandler}
                 />
-                <button>Вход</button>
+                <button className="button">Вход</button>
                 <Link to="/register" className={style.navToRegisterLink} onClick={props.onClosing}>Нямаш регистрация? Регистрирай се.</Link>
             </form>
         </div>

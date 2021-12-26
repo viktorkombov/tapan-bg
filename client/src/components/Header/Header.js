@@ -1,8 +1,15 @@
 import style from './Header.module.scss'
 import {Link} from 'react-router-dom';
+import DropDown from '../DropDown';
+import { useEffect, useState } from 'react';
+import * as userService from '../../services/userService'
+import UserDropDown from './UserDropDown';
 
 const Header = (props) => {
-
+    
+    useEffect(() => {
+        console.log(props.appProps.location)
+    },[])
     return (
         <header className={style.header}>
             <nav className={style.headerNavigation}>
@@ -34,7 +41,7 @@ const Header = (props) => {
                         <Link to=""className={style.navListItem} >За нас</Link> 
                     </li>
                     <li className={style.listItem}>
-                        <a className={style.navListItem} onClick={props.onClosing}><i className="fas fa-user"></i></a> 
+                        {props.user?.name ? <a><UserDropDown profilePicture={props.user?.profilePicture} userLogout={props.userLogout} /></a> : <a className={style.navListItem} onClick={props.onClosing}><i className="fas fa-user"></i></a>}
                     </li>
                 </ul>
             </nav>
@@ -45,7 +52,7 @@ const Header = (props) => {
                 <p className={style.headerLogoSubtitle}>
                     НАУЧИ ПОВЕЧЕ <br /> ЗА БЪЛГАРИЯ И СВЕТА
             </p>
-                <Link to=""className={style.navListItem} ><i className="fas fa-bars"></i></Link> 
+                <a className={style.navListItem} ><DropDown onClosinSearchInput={props.onClosinSearchInput}/></a> 
             </article>
         </header>
     );

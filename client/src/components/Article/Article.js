@@ -1,4 +1,5 @@
 import { Component, useEffect, useState } from 'react';
+import { withRouter } from 'react-router-dom' 
 import style from './Article.module.scss'
 import * as articleService from '../../services/articleService';
 
@@ -6,28 +7,32 @@ class Article extends Component {
     constructor(props) {
         super(props);
         
-        
         this.state = {
-            articles: []
+            article: {}
         }
     }
 
     componentDidMount() {
-        articleService.getAll()
-            .then(articles => this.setState({articles}))
-        // console.log(this.state)
+        const id = this.props.location.pathname.split('/')[this.props.location.pathname.split.length]
+        console.log(id)
+        articleService.getOne(id)
+            .then(article => this.setState({article}))
+        console.log(this.state)
+        const location = this.props.location
+        console.log(location)
     }
 
     componentDidUpdate(prevProps) {
         if (prevProps.onLoad === this.props.onLoad) {
             return;
         }
-        this.props.onLoad(this.state.articles[0]?.articleName)
+        this.props.onLoad(this.state.article.articleName)
     }
 
     render() {
+        console.log(this.props.location)
         return (
-            <p className={style.articleParagraph}>{this.state.articles[0]?.articleContent}</p>
+            <p className={style.articleParagraph}>{this.state.article?.articleContent}</p>
         );
     }
 
@@ -55,4 +60,4 @@ class Article extends Component {
 //     );
 // }
 
-export default Article;
+export default withRouter(Article);

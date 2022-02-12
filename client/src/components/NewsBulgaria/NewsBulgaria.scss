@@ -1,0 +1,14 @@
+.news-bulgaria {
+    display: flex;
+    flex-direction: column;
+
+    margin: 16px;
+
+    .news-bulgaria-card {
+        width: 100%;
+        margin-bottom: 16px;
+        .makeStyles-root-3 {
+            max-width: auto;
+        }
+    }
+}

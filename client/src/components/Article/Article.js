@@ -1,4 +1,4 @@
-import { Component, useEffect, useState } from 'react';
+import { Component } from 'react';
 import { withRouter } from 'react-router-dom' 
 import style from './Article.module.scss'
 import * as articleService from '../../services/articleService';
@@ -13,13 +13,10 @@ class Article extends Component {
     }
 
     componentDidMount() {
-        const id = this.props.location.pathname.split('/')[this.props.location.pathname.split.length]
-        console.log(id)
+        const id = this.props.location.pathname.split('/')[this.props.location.pathname.split('/').length - 1]
         articleService.getOne(id)
             .then(article => this.setState({article}))
-        console.log(this.state)
         const location = this.props.location
-        console.log(location)
     }
 
     componentDidUpdate(prevProps) {
@@ -30,7 +27,6 @@ class Article extends Component {
     }
 
     render() {
-        console.log(this.props.location)
         return (
             <p className={style.articleParagraph}>{this.state.article?.articleContent}</p>
         );

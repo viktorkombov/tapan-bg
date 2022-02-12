@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap");
+
+.main-header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    z-index: 1000;
+    // -webkit-box-shadow: 0 0 5px white;
+    //         box-shadow: 0 0 5px white;
+
+    .main-header-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 50px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .main-header-logo-wrapper {
+        font-family: "Source Serif Pro", serif;
+        font-weight: 400;
+        color: white;
+        margin-left: 20px;
+    }
+
+    .main-header-nav-links {
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+
+        li {
+            list-style: none;
+            margin-left: 20px;
+        }
+    }
+
+    .main-header-div {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .main-header-div-nav-dropdown {
+        display: none;
+        margin-right: 20px;
+    }
+}
+
+@media screen and(max-width: 650px) {
+    .main-header {
+        .main-header-nav-links {
+            display: none;
+        }
+
+        .main-header-div-nav-dropdown {
+            display: flex;
+        }
+    }
+}

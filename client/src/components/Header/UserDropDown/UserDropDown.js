@@ -4,6 +4,7 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import { Link } from 'react-router-dom';
 import { Avatar } from '@material-ui/core';
+import GlobalContext from '../../../contexts/GlobalContext';
 
 const StyledMenu = withStyles({
     paper: {
@@ -42,6 +43,8 @@ const StyledMenuItem = withStyles((theme) => ({
 export default function CustomizedMenus(props) {
     const [anchorEl, setAnchorEl] = React.useState(null);
 
+    const context = React.useContext(GlobalContext);
+
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -75,7 +78,7 @@ export default function CustomizedMenus(props) {
                 <Link to="/article/add-new">
                     <StyledMenuItem>Публикувай статия</StyledMenuItem>
                 </Link>
-                <StyledMenuItem onClick={props.userLogout}>Изход</StyledMenuItem>
+                <StyledMenuItem onClick={context.userLogout}>Изход</StyledMenuItem>
             </StyledMenu>
         </div>
     );

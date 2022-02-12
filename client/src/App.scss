@@ -1,3 +1,5 @@
+
+
 .headlinesHeading {
     margin-left: 16px;
     margin-top: 12px;
@@ -10,23 +12,22 @@
         margin-top: 11px;
         margin-bottom: 14px;
     }
-
 }
 
 .button {
     margin-top: 10px;
     width: 315px;
     padding: 15px;
-    background-color: #4488D0;
+    background-color: #4488d0;
     border-radius: 10px;
     color: white;
     font-size: 16px;
-    border: 1px solid #4488D0;
+    border: 1px solid #4488d0;
     transition: all 0.3s;
     &:hover {
-        transform: scale(1.005);
+        // transform: scale(1.005);
         cursor: pointer;
-        box-shadow: 0 0 5px  #4488D0;
+        box-shadow: 0 0 5px #4488d0;
     }
     &:focus {
         outline: none;
@@ -44,31 +45,32 @@
         color: white;
         margin-bottom: 30px;
     }
-    
-    input[type=text], input[type=password], select, textarea {
+
+    input[type="text"],
+    input[type="password"],
+    select,
+    textarea {
         padding: 15px;
         width: 600px;
         border: 1px solid gray;
         margin: 10px;
-        
 
         &:focus {
             outline: none;
-            box-shadow: 0 0 10px 0px #4488D0;
+            box-shadow: 0 0 10px 0px #4488d0;
         }
     }
 
     select {
         width: 630px;
         color: grey;
-        padding-left: 13px
+        padding-left: 13px;
     }
 
     textarea {
         min-height: 300px;
     }
 }
-
 
 @media screen and (max-width: 1200px) {
     .main {
@@ -79,7 +81,9 @@
 @media screen and (max-width: 800px) {
     .form {
         margin-top: 30%;
-        input[type=text], input[type=password], textarea {
+        input[type="text"],
+        input[type="password"],
+        textarea {
             width: 80%;
         }
         h1 {
@@ -89,8 +93,6 @@
         select {
             width: 85%;
         }
-
-       
     }
 }
 
@@ -99,4 +101,3 @@
         width: 70%;
     }
 }
-
